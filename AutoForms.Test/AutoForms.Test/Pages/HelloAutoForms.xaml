@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoForms.Test.Pages.HelloAutoForms"
+             xmlns:af="clr-namespace:AutoForms;assembly=AutoForms"
+             Title="Hello AutoForms">
+    <ContentPage.Content>
+        <af:AutoForms LabelStyle="{StaticResource DefaultLabelStyle}"/>
+    </ContentPage.Content>
+</ContentPage>

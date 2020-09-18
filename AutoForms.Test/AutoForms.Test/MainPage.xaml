@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoForms.Test.MainPage"
+             Title="Welcome to AutoForms!">
+    <ContentPage.Content>
+            <ListView ItemsSource="{Binding Items}"
+                      ItemSelected="ListView_ItemSelected"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowSpacing="1"
+                                  Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Label Text="{Binding Title}"
+                                       FontSize="Large" 
+                                       Margin="5,0,0,0"/>
+                                <Label Text="{Binding Description}"
+                                       FontSize="Small" 
+                                       Grid.Row="1"
+                                       Margin="15,0,0,0"
+                                       FontAttributes="Italic"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </ContentPage.Content>   
+
+</ContentPage>
