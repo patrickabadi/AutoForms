@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoForms.Test.Pages.Validation"
+             xmlns:af="clr-namespace:AutoForms;assembly=AutoForms"
+             Title="Validation">
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,Auto">
+            <af:AutoForms LabelStyle="{StaticResource DefaultLabelStyle}"
+                          Validation="{Binding AutoFormsValidation}"
+                          BindingContext="{Binding Model}" />
+            <Button Text="Check Form"
+                    Grid.Row="1"
+                    Command="{Binding CheckFormCommand}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

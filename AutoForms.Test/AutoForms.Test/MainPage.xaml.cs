@@ -17,7 +17,8 @@ namespace AutoForms.Test
         {
             Items = new ObservableCollection<MenuItem>
             {
-                new MenuItem("Hello AutoForms", "First look at AutoForms", new HelloAutoForms()),
+                new MenuItem("Hello AutoForms", "First look at AutoForms", typeof(HelloAutoForms)),
+                new MenuItem("Validation", "Forms Validation", typeof(Validation)),
             };
 
             InitializeComponent();
@@ -26,9 +27,11 @@ namespace AutoForms.Test
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            Type t = typeof(HelloAutoForms);
+            var t = (e.SelectedItem as MenuItem)?.PageType;
+            if (t == null)
+                return;
 
-            var page = (e.SelectedItem as MenuItem)?.Page;
+            var page = Activator.CreateInstance(t) as ContentPage;
             if (page == null)
                 return;
 
@@ -39,14 +42,13 @@ namespace AutoForms.Test
         {
             public string Title { get; set; }
             public string Description { get; set; }
+            public Type PageType { get; set; }
 
-            public ContentPage Page { get; set; }
-
-            public MenuItem(string title, string description, ContentPage page)
+            public MenuItem(string title, string description, Type pageType)
             {
                 Title = title;
                 Description = description;
-                Page = page;
+                PageType = pageType;
             }
         }
     }
