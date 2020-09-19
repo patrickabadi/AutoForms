@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Xamarin.Forms.AutoForms</id>
+    <version>0.2.0</version>
+    <title>AutoForms</title>
+    <authors>Patrick Abadi, Daniel Packard</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/patrickabadi/AutoForms</projectUrl>
+    <iconUrl>https://pbs.twimg.com/profile_images/1293677608295526401/QKpzw-zW_400x400.jpg</iconUrl>
+    <description>Auto generated Xamarin.Forms UI from your Domain Models</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>xamarin forms ui mvvm android ios uwp</tags>
+
+    <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+    
+  </metadata>
+
+  <files>
+    <!-- Cross-platform reference assemblies -->
+    <file src="bin\Release\netstandard2.0\AutoForms.deps.json" target="lib\netstandard2.0\AutoForms.deps.json" />
+    <file src="bin\Release\netstandard2.0\AutoForms.dll" target="lib\netstandard2.0\AutoForms.dll" />
+    <file src="bin\Release\netstandard2.0\AutoForms.pdb" target="lib\netstandard2.0\AutoForms.pdb" />
+  </files>
+  
+</package>

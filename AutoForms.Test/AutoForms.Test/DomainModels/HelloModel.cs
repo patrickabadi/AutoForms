@@ -32,7 +32,7 @@ namespace AutoForms.Test.DomainModels
         public Relation RelationToClient { get; set; }
 
         [AutoForms("Notes", heightRequest: 100)]
-        public string notes { get; set; }
+        public string Notes { get; set; }
 
     }
 }

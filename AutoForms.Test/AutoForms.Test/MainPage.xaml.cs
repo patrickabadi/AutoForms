@@ -26,6 +26,8 @@ namespace AutoForms.Test
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            Type t = typeof(HelloAutoForms);
+
             var page = (e.SelectedItem as MenuItem)?.Page;
             if (page == null)
                 return;

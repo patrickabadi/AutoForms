@@ -2,10 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Patrick Abadi, Daniel Packard</Authors>
+    <Company>Spectre3D</Company>
+    <Description>Auto Generating UI for Xamarin.Forms from your Domain Models</Description>
+    <Copyright>Copyright 2020</Copyright>
+    <PackageProjectUrl>https://github.com/patrickabadi/AutoForms</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/patrickabadi/AutoForms</RepositoryUrl>
+    <PackageTags>Xamarin.Forms UI MVVM</PackageTags>
+    <Version>0.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\peter\OneDrive\Documents\Spectre3D\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
