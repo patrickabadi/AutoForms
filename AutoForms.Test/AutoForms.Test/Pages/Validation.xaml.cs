@@ -14,7 +14,6 @@ namespace AutoForms.Test.Pages
     public partial class Validation : ContentPage
     {
         public ValidationModel Model { get; set; }
-        public AutoFormsValidation AutoFormsValidation { get; set; }
         public ICommand CheckFormCommand { get; set; }
 
         public Validation()
@@ -29,7 +28,7 @@ namespace AutoForms.Test.Pages
 
         protected async void OnCheckForm()
         {
-            var result = AutoFormsValidation?.CheckValidation() ?? false;
+            var result = Model.AutoFormsValidation?.CheckValidation() ?? false;
 
             string response = "Your form is " + (result ? "valid" : "invalid");
             await DisplayAlert("Form Check", response, "OK");

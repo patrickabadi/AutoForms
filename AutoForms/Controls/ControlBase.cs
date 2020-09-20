@@ -249,6 +249,9 @@ namespace AutoForms.Controls
                         case Type _ when p.IsEnum:
                             item = new ControlCombo(config);
                             break;
+                        case Type _ when p == typeof(object):
+                            item = new ControlLabel(config);
+                            break;
                     }
                     break;
             }

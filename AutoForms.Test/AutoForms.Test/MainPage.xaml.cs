@@ -13,11 +13,14 @@ namespace AutoForms.Test
     public partial class MainPage : ContentPage
     {
         public ObservableCollection<MenuItem> Items { get; set; }
+
         public MainPage()
         {
             Items = new ObservableCollection<MenuItem>
             {
                 new MenuItem("Hello AutoForms", "First look at AutoForms", typeof(HelloAutoForms)),
+                new MenuItem("Horizontal Controls", "Controls grouped horizontally", typeof(HorizontalControls)),
+                new MenuItem("More Controls", "List of different types of controls", typeof(MoreControls)),
                 new MenuItem("Validation", "Forms Validation", typeof(Validation)),
             };
 
@@ -29,13 +32,15 @@ namespace AutoForms.Test
         {
             var t = (e.SelectedItem as MenuItem)?.PageType;
             if (t == null)
-                return;
+                return;                
 
             var page = Activator.CreateInstance(t) as ContentPage;
             if (page == null)
                 return;
 
-            await Navigation.PushAsync(new NavigationPage(page));
+            await Navigation.PushAsync(page);
+
+            ((ListView)sender).SelectedItem = null;
         }
 
         public class MenuItem

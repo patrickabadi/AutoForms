@@ -39,7 +39,7 @@ namespace AutoForms.Controls
 
         protected override View CreateControl(string bindingName, Type fieldType)
         {
-            if (fieldType != typeof(string))
+            if (fieldType != typeof(string) && fieldType != typeof(object))
             {
                 Debug.WriteLine($"field:{bindingName} error. Wrong type {fieldType.ToString()} should be string");
                 return null;
@@ -55,7 +55,14 @@ namespace AutoForms.Controls
                 LineBreakMode = LineBreakMode.WordWrap,
             };
 
-            l.SetBinding(Xamarin.Forms.Label.TextProperty, new Binding(bindingName, BindingMode.TwoWay));
+            if(fieldType == typeof(string))
+            {
+                l.SetBinding(Xamarin.Forms.Label.TextProperty, new Binding(bindingName, BindingMode.TwoWay));
+            }
+            else
+            {
+                l.Text = _config.Label;
+            }
 
             return l;
         }

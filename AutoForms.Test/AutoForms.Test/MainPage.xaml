@@ -6,7 +6,8 @@
     <ContentPage.Content>
         <ListView ItemsSource="{Binding Items}"
                   ItemSelected="ListView_ItemSelected"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

@@ -7,6 +7,8 @@ namespace AutoForms.Test.DomainModels
 {
     public class ValidationModel
     {
+        public AutoFormsValidation AutoFormsValidation { get; set; }
+
         [AutoForms("Name")]
         [AutoFormsRequired]
         [AutoFormsMaxLength(10)]
@@ -25,7 +27,7 @@ namespace AutoForms.Test.DomainModels
         public string CountryCode { get; set; }
 
         [AutoFormsHorizontalGroup(3, GridUnitType.Star)]
-        [AutoForms(" ", AutoFormsType.Entry, placeholder:"Phone Number")]
+        [AutoForms(" ", AutoFormsType.Entry, placeholder:"Number")]
         [AutoFormsMaxLength(10)]
         [AutoFormsMinLength(5)]
         [AutoFormsRequired]
