@@ -51,6 +51,5 @@ namespace AutoForms.Test.DomainModels
         [AutoForms("Create", itemStyle: "DefaultButtonStyle", filter: (int)(FilterType.Create))]
         public ICommand CreateCommand { get; set; }
 
-
     }
 }
