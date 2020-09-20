@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AutoForms.Test.Pages.Filtering"
+             xmlns:af="clr-namespace:AutoForms;assembly=AutoForms"
+             xmlns:controls="clr-namespace:AutoForms.Controls;assembly=AutoForms"
+             Title="Filtering">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+            <controls:TabGroup ButtonHeight="60"
+                               Orientation="Horizontal"
+                               SelectorColor="CadetBlue"
+                               SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
+
+                <controls:TabButton Text="Login"
+                                    Style="{StaticResource HorizontalTabButtonStyle}"
+                                    IsSelected="True" />
+                <controls:TabButton Text="Create"
+                                    Style="{StaticResource HorizontalTabButtonStyle}" />
+            </controls:TabGroup>
+
+            <af:AutoForms Grid.Row="1"
+                          FilterType="{Binding FilteringType}"
+                          Filter="{Binding Filter, Mode=TwoWay}"
+                          LabelStyle="{StaticResource DefaultLabelStyle}" 
+                          BindingContext="{Binding Model}"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -50,10 +50,10 @@ namespace AutoForms.Controls
                 Style = _itemStyle ?? LabelStyle,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 VerticalTextAlignment = TextAlignment.Center,
-                HorizontalOptions = LayoutOptions.Fill,
-                HorizontalTextAlignment = TextAlignment.Start,
                 LineBreakMode = LineBreakMode.WordWrap,
             };
+
+            SetHorizontalLayoutOptions(l, _attribute.HorizontalLabelOptions);
 
             if(fieldType == typeof(string))
             {

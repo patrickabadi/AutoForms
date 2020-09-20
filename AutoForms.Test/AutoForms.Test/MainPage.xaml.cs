@@ -22,6 +22,7 @@ namespace AutoForms.Test
                 new MenuItem("Horizontal Controls", "Controls grouped horizontally", typeof(HorizontalControls)),
                 new MenuItem("More Controls", "List of different types of controls", typeof(MoreControls)),
                 new MenuItem("Validation", "Forms Validation", typeof(Validation)),
+                new MenuItem("Filtering", "Dynamic filtering the same model", typeof(Filtering)),
             };
 
             InitializeComponent();

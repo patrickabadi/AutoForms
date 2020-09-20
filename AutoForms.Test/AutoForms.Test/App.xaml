@@ -66,5 +66,37 @@
             <Setter Property="BorderColor"
                     Value="CadetBlue" />
         </Style>
+
+        <Style x:Key="HorizontalTabButtonStyle"
+               TargetType="controls:TabButton">
+
+            <Setter Property="TextColor"
+                    Value="DarkGray" />
+            <Setter Property="BorderColor"
+                    Value="Transparent" />
+            <Setter Property="BackgroundColor"
+                    Value="Transparent" />
+            <Setter Property="CornerRadius"
+                    Value="0" />
+            <Setter Property="FontSize"
+                    Value="Large" />
+
+            <Style.Triggers>
+                <Trigger TargetType="controls:TabButton"
+                         Property="IsSelected"
+                         Value="True">
+                    <Setter Property="TextColor"
+                            Value="CadetBlue" />
+                </Trigger>
+                <Trigger TargetType="controls:TabButton"
+                         Property="IsSelected"
+                         Value="False">
+                    <Setter Property="TextColor"
+                            Value="DarkGray" />
+                </Trigger>
+
+                
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

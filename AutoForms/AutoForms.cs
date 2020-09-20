@@ -50,18 +50,12 @@ namespace AutoForms
             set { SetValue(FilterTypeProperty, value); }
         }
 
-        public static readonly BindableProperty FilterProperty = BindableProperty.Create(nameof(Filter), typeof(string), typeof(AutoForms), null, BindingMode.Default,
+        public static readonly BindableProperty FilterProperty = BindableProperty.Create(nameof(Filter), typeof(string), typeof(AutoForms), null, BindingMode.OneWayToSource,
             propertyChanged: (bindable, oldValue, newValue) =>
             {
                 var ctrl = (AutoForms)bindable;
                 ctrl.RebuildForms();
             });
-
-        public double RowSpacing
-        {
-            get { return (double)GetValue(FilterTypeProperty); }
-            set { SetValue(FilterTypeProperty, value); }
-        }
 
         public string Filter
         {
