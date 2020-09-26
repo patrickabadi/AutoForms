@@ -67,6 +67,13 @@
                     Value="CadetBlue" />
         </Style>
 
+        <Style x:Key="AddListButtonStyle"
+               TargetType="Button"
+               BasedOn="{StaticResource DefaultButtonStyle}">
+            <Setter Property="WidthRequest"
+                    Value="60" />
+        </Style>
+
         <Style x:Key="HorizontalTabButtonStyle"
                TargetType="controls:TabButton">
 

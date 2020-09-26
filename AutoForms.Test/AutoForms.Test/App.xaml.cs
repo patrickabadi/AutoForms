@@ -12,6 +12,26 @@ namespace AutoForms.Test
         {
             InitializeComponent();
 
+            // Icon Fonts
+            AutoFormsConstants.FontFamilyDefault = "MaterialIcons";
+
+            // Icons related to Icon Fonts
+            AutoFormsConstants.Checkbox_Checked = "\xe834";
+            AutoFormsConstants.Checkbox_Empty = "\xe835";
+            AutoFormsConstants.Radio_Empty = "\xe836";
+            AutoFormsConstants.Radio_Checked = "\xe837";
+            AutoFormsConstants.Button_Edit = "\xe150";
+            AutoFormsConstants.Button_View = "\xe417";
+            AutoFormsConstants.Button_Delete = "\xe872";
+
+            // Colors
+            AutoFormsConstants.SelectedColor = Color.FromRgb(20, 143, 206);
+
+            // UI styles
+            AutoFormsConstants.ActionButtonStyle = "AutoFormsActionButtonStyle";
+            AutoFormsConstants.ListHeaderStyle = "AutoFormsListHeaderStyle";
+            AutoFormsConstants.AutoFormsListHeaderLabelStyle = "AutoFormsListHeaderLabelStyle";
+
             MainPage = new NavigationPage(new MainPage());
         }
 

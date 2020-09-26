@@ -55,5 +55,21 @@ namespace AutoForms.Test.DomainModels
 
         [AutoForms("Select Buttons", AutoFormsType.SelectButton, itemStyle: "DefaultSelectButtonStyle")]
         public EnumType? MySelectButton { get; set; }
+
+        // AutoForms Recursion
+        [AutoForms()]
+        public AddressModel Address { get; set; } = new AddressModel();
+    }
+
+    public class AddressModel
+    {
+        [AutoForms("Address")]
+        public string Address { get; set; }
+
+        [AutoForms("City")]
+        public string City { get; set; }
+
+        [AutoForms("State/Province")]
+        public string State { get; set; }
     }
 }

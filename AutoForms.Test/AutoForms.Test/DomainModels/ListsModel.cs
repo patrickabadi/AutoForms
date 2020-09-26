@@ -11,8 +11,16 @@ namespace AutoForms.Test.DomainModels
     [AddINotifyPropertyChangedInterface]
     public class ListsModel
     {
-        
-        [AutoFormsList("Phone Numbers",
+        [AutoFormsList("Policy Numbers",
+            commands: new string[] { nameof(AddPolicyCommand) },
+            emptyListMessage: "No policy numbers have been entered yet. Add one above.",
+            nestedListView: true)]
+        public ObservableCollection<PolicyNumber> PolicyNumbers { get; set; }
+
+        [AutoFormsButton("Add", "AddListButtonStyle")]
+        public ICommand AddPolicyCommand { get; set; }
+
+        [AutoFormsList("List with Actions",
             commands: new string[] { nameof(AddCommand) },
             onDeleteCommand: nameof(DeleteCommand),
             onEditCommand: nameof(EditCommand),
@@ -21,7 +29,7 @@ namespace AutoForms.Test.DomainModels
             nestedListView: true)]
         public ObservableCollection<PhoneNumberModel> PhoneNumbers { get; set; }
 
-        [AutoFormsButton("Add", "DefaultButtonStyle")]
+        [AutoFormsButton("Add", "AddListButtonStyle")]
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand EditCommand { get; set; }
@@ -30,32 +38,28 @@ namespace AutoForms.Test.DomainModels
 
         public ListsModel()
         {
+            PolicyNumbers = new ObservableCollection<PolicyNumber>();
             PhoneNumbers = new ObservableCollection<PhoneNumberModel>();
-            AddCommand = new Command(OnAdd);
-            DeleteCommand = new Command(OnDelete);
-            EditCommand = new Command(OnEdit);
-            ViewCommand = new Command(OnView);
+
+            AddCommand = new Command(()=> PhoneNumbers.Add(new PhoneNumberModel()));
+            DeleteCommand = new Command((obj)=> PhoneNumbers.Remove(obj as PhoneNumberModel));
+            EditCommand = new Command(()=> { });
+            ViewCommand = new Command(()=> { });
+            AddPolicyCommand = new Command(() => PolicyNumbers.Add(new PolicyNumber()));
         }
 
-        public void OnAdd()
-        {
-            PhoneNumbers.Add(new PhoneNumberModel());
-        }
+    }
 
-        public void OnDelete(object obj)
-        {
-            PhoneNumbers.Remove(obj as PhoneNumberModel);
-        }
-
-        public void OnEdit(object obj)
-        {
-
-        }
-
-        public void OnView(object obj)
-        {
-
-        }
+    [AddINotifyPropertyChangedInterface]
+    public class PolicyNumber
+    {
+        [AutoFormsListItem("Number", 1, GridUnitType.Star, type: AutoFormsType.Entry)]
+        public int Number { get; set; }
+        [AutoFormsListItem("Description", 3, GridUnitType.Star, type: AutoFormsType.Entry)]
+        public string Extension { get; set; }
+        public enum PolicyType { Insurance, Government, Other  }
+        [AutoFormsListItem("Type", 2, GridUnitType.Star, type: AutoFormsType.Combo)]
+        public PolicyType Type { get; set; }
     }
 
     [AddINotifyPropertyChangedInterface]
