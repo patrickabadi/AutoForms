@@ -2,7 +2,14 @@
 
 To use **AutoForms** simply add the control in your xaml and then bind it to your data model.  On your model you add certain attributes to each property telling AutoForms how it should behave.
 
-### Example
+## Supported platforms
+
+- [x] Android
+- [x] iOS
+- [x] UWP
+- [?] Other Platforms (Maybe but I haven't tested)
+
+## Example
 **xaml**
 ```xml
 <AutoForms LabelStyle="{StaticResource DefaultLabelStyle}"/>
@@ -43,7 +50,28 @@ public class HelloModel
 | <img src="./Screenshots/helloworld-uwp.png" width="400" />     | <img src="./Screenshots/helloworld-android.png" width="400" />       |
 | UWP      | Android |
 
-### Validation
+## Controls
+There are many more controls than listed here.  Check the sample application to view them all
+```cs
+[AutoForms("Click Me", itemStyle:"DefaultButtonStyle")]
+public ICommand MyButton { get; set; }
+
+[AutoForms("Checkbox")]
+public bool Check { get; set; }
+
+public enum EnumRadioType { One, Two }
+
+[AutoFormsRadioButton("Radio buttons", AutoFormsOrientation.Horizontal)]
+public EnumRadioType? MyRadioEnum { get; set; }
+
+public enum EnumType { First, Second, Third }
+
+[AutoForms("Select Buttons", AutoFormsType.SelectButton, itemStyle: "DefaultSelectButtonStyle")]
+public EnumType? MySelectButton { get; set; }
+```
+<img src="./Screenshots/controls-android.png" width="400" /> 
+
+## Validation
 There is both active validation on supported properties as well as the ability to query the validation states
 
 ```cs
@@ -85,7 +113,7 @@ public class ValidationModel
 
  <img src="./Screenshots/validation.png" width="400" />
 
-### Filtering
+## Filtering
 
 The same model can be used to show multiple generated UI for different scenarios.
 ```cs 
@@ -139,3 +167,8 @@ public class FilteringModel
  <img src="./Screenshots/filtering.gif" width="400" />
  
  *Note: the top tab control is a separate control, not created by AutoForms.
+
+## Todo
+- Localization for all labels
+- More data types and controls
+- More configuration options
