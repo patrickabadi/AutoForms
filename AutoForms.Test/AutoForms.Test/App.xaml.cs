@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+[assembly: ExportFont("MaterialIcons-Regular.ttf", Alias = "MaterialIcons")]
+
 namespace AutoForms.Test
 {
     public partial class App : Application

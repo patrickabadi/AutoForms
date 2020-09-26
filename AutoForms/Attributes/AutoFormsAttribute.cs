@@ -23,7 +23,7 @@ namespace AutoForms
         /*get focused on this control*/
         public string IsFocused { get; set; }
         /*Orientation flow of the label+control*/
-        public AutoFormsOrientation Orientation { get; private set; }
+        public AutoFormsOrientation Orientation { get; set; }
         /*Horizontal positioning of the label*/
         public AutoFormsLayoutOptions HorizontalLabelOptions { get; private set; }
         /*Horizontal positioning of the control*/

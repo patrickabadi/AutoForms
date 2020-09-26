@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoForms.Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
@@ -19,7 +20,7 @@ namespace AutoForms.Controls
             {
                 var ctrl = (Checkbox)bindable;
 
-                ctrl._checkbox.Text = (bool)(newValue ?? false) ? Checkmark : Empty;
+                ctrl._checkbox.Text = (bool)(newValue ?? false) ? AutoFormsConstants.Checkbox_Checked : AutoFormsConstants.Checkbox_Empty;
 
             });
 
@@ -96,8 +97,7 @@ namespace AutoForms.Controls
 
         protected const double size = 40;
 
-        public static readonly string Empty = "\uE739";
-        public static readonly string Checkmark = "\uE73A";
+        
 
         protected Label _checkbox;
         protected Label _label;
@@ -137,16 +137,17 @@ namespace AutoForms.Controls
                 }
             };
 
+            //Application.Current.Resources.
+
             _checkbox = new Label
             {
-                //BackgroundColor = Color.Green,
                 HorizontalOptions = LayoutOptions.StartAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalTextAlignment = TextAlignment.Start,
                 VerticalTextAlignment = TextAlignment.Center,
-                Text = Empty,
+                Text = AutoFormsConstants.Checkbox_Empty,
                 FontAttributes = FontAttributes.None,
-                FontFamily = "Segoe MDL2 Assets",
+                FontFamily = AutoFormsConstants.FontFamilyDefault,
                 GestureRecognizers =
                 {
                     new TapGestureRecognizer
@@ -159,7 +160,6 @@ namespace AutoForms.Controls
 
             _label = new Label
             {
-                //BackgroundColor = Color.Red,
                 HorizontalOptions = LayoutOptions.StartAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalTextAlignment = TextAlignment.Start,

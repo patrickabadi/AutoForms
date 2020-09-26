@@ -1,7 +1,7 @@
 ﻿using AutoForms.Common;
+using AutoForms.Converters;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;
@@ -22,6 +22,8 @@ namespace AutoForms.Controls
 
         protected override View InitializeControl()
         {
+            //_attribute.Orientation = AutoFormsOrientation.Horizontal;
+
             var propertyType = _propertyType;
             var t = Nullable.GetUnderlyingType(propertyType);
             if (t != null)
@@ -80,7 +82,7 @@ namespace AutoForms.Controls
 
         private void AddControlContainers(string bindingName, Type propertyType, AutoFormsOrientation orientation)
         {
-            /*var dict = EnumHelper.ToDictionary(propertyType);
+            var dict = EnumHelper.ToDictionary(propertyType);
 
             var inline = false;
             if (_attribute is AutoFormsRadioButtonAttribute rba)
@@ -92,7 +94,7 @@ namespace AutoForms.Controls
                 VerticalOptions = LayoutOptions.StartAndExpand,
             };
             g.SetBinding(
-                RadioGroup.SelectedIndexProperty, 
+                RadioGroup.SelectedIndexProperty,
                 new Binding(bindingName, BindingMode.TwoWay, new EnumConverter(), propertyType));
 
             var h = new Grid
@@ -101,7 +103,7 @@ namespace AutoForms.Controls
                 VerticalOptions = LayoutOptions.StartAndExpand,
             };
 
-            if(orientation == AutoFormsOrientation.Horizontal)
+            if (orientation == AutoFormsOrientation.Horizontal)
             {
                 Grid.SetRow(g, 1);
                 Grid.SetColumn(g, 1);
@@ -115,10 +117,10 @@ namespace AutoForms.Controls
                 Grid.SetRow(h, 1);
                 Grid.SetColumn(h, 0);
             }
-            
+
 
             foreach (var kvp in dict)
-            {               
+            {
 
                 var radio = new RadioButton
                 {
@@ -212,8 +214,8 @@ namespace AutoForms.Controls
             var c = Content as Grid;
             c.Children.Add(g);
 
-            if(!_hideHeader && !inline)
-                c.Children.Add(h);*/
+            if (!_hideHeader && !inline)
+                c.Children.Add(h);
         }
 
         protected override View CreateControl(string bindingName, Type fieldType)

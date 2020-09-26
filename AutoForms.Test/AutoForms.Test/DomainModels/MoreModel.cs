@@ -16,8 +16,14 @@ namespace AutoForms.Test.DomainModels
         [AutoForms("Click Me", itemStyle:"DefaultButtonStyle")]
         public ICommand MyButton { get; set; }
 
-        //[AutoForms("Here is a checkbox")]
-        //public bool CheckMe { get; set; }
+        [AutoForms("Checkbox 1")]
+        public bool Check1 { get; set; }
+
+        [AutoForms("Checkbox 2")]
+        public bool Check2 { get; set; }
+
+        [AutoForms("Checkbox 3")]
+        public bool Check3 { get; set; }
 
         [AutoForms("Combo box from list", AutoFormsType.Combo, grouped:new string[] { nameof(SelectedComboBoxIndex) })]
         public List<string> PickerStrings { get; set; } = new List<string> { "First", "Second", "Third" };
@@ -38,8 +44,14 @@ namespace AutoForms.Test.DomainModels
         [AutoForms("Pick a date")]
         public DateTime? MyDate { get; set; } = DateTime.UtcNow;
 
-        //[AutoFormsRadioButton("Radio buttons from enum", AutoFormsOrientation.Horizontal, controlWidthRequest:200, inline:true)]
-        //public EnumType? MyRadioEnum { get; set; }
+        public enum EnumRadioType
+        {
+            One,
+            Two
+        }
+
+        [AutoFormsRadioButton("Radio buttons", AutoFormsOrientation.Horizontal)]
+        public EnumRadioType? MyRadioEnum { get; set; }
 
         [AutoForms("Select Buttons", AutoFormsType.SelectButton, itemStyle: "DefaultSelectButtonStyle")]
         public EnumType? MySelectButton { get; set; }

@@ -17,6 +17,13 @@ namespace AutoForms.Controls
 
         }
 
+        public override void Initialize()
+        {
+            _config.Attribute.Orientation = AutoFormsOrientation.Horizontal;
+
+            base.Initialize();
+        }
+
         protected override View CreateControl(string bindingName, Type fieldType)
         {
             if (fieldType != typeof(bool) && fieldType != typeof(bool?))
