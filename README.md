@@ -50,7 +50,21 @@ public class HelloModel
 | <img src="./Screenshots/helloworld-uwp.png" width="400" />     | <img src="./Screenshots/helloworld-android.png" width="400" />       |
 | UWP      | Android |
 
-## Controls
+## Horizontal grouping controls
+Controls can be display in a horizontal grouping
+```cs
+[AutoFormsHorizontalGroup(3, GridUnitType.Star)]
+[AutoForms("Phone Number", AutoFormsType.Entry, grouped: new string[] { nameof(Phone) })]
+public string PhoneNumber { get; set; }
+
+[AutoFormsHorizontalGroup(1, GridUnitType.Star)]
+[AutoForms(" ")]
+public PhoneType Phone { get; set; }
+
+```
+<img src="./Screenshots/horizontal-android.png" width="400"/>
+
+## More Controls
 There are many more controls than listed here.  Check the sample application to view them all
 ```cs
 [AutoForms("Click Me", itemStyle:"DefaultButtonStyle")]
