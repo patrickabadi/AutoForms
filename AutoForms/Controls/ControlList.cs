@@ -160,12 +160,7 @@ namespace AutoForms.Controls
             var type = GetListItemType();
             if (type != null)
             {
-                var attrib = type.GetAttribute<AutoFormsListUIAttribute>();
-
-                if(attrib != null)
-                {
-                    _labelsButtons.Padding = new Thickness(attrib.ListItemPaddingLeft, attrib.LabelButtonsPaddingTop, attrib.ListItemPaddingRight, attrib.LabelButtonsPaddingBottom);
-                }
+                _labelsButtons.Padding = new Thickness(25, 5, 25, 5);                
             }
             
 
@@ -243,18 +238,16 @@ namespace AutoForms.Controls
                 return _header;
             }
 
-            var attrib = type.GetAttribute<AutoFormsListUIAttribute>();
-
             _header = new Grid
             {
-                ColumnSpacing = attrib.ColumnSpacing,
+                ColumnSpacing = 0,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
             Grid.SetRow(_header, 1);
 
-            _header.Padding = new Thickness(attrib.ListItemPaddingLeft, attrib.ListHeaderPaddingTop, attrib.ListItemPaddingRight, attrib.ListHeaderPaddingBottom);
+            _header.Padding = new Thickness(25,5,25,5);
 
-            var headerStyle = attrib?.ColumnHeaderGridStyle ?? null;
+            var headerStyle = AutoFormsConstants.ListHeaderStyle;
 
             if(string.IsNullOrEmpty(headerStyle) == false && 
                 Application.Current.Resources.TryGetValue(headerStyle, out object headerObj))
@@ -271,8 +264,8 @@ namespace AutoForms.Controls
             var style = LabelStyle;
             Style sortButtonStyle = null;
 
-            var headerLabelStyle = attrib?.ColumnHeaderLabelStyle ?? null;
-            var headerSortButtonStyle = attrib?.ColumnHeaderSortButtonStyle ?? null;
+            var headerLabelStyle = AutoFormsConstants.AutoFormsListHeaderLabelStyle;
+            string headerSortButtonStyle = null; // for now
 
             if (string.IsNullOrEmpty(headerLabelStyle) == false &&
                 Application.Current.Resources.TryGetValue(headerLabelStyle, out object obj))

@@ -98,5 +98,47 @@
                 
             </Style.Triggers>
         </Style>
+
+        <Style x:Key="AutoFormsActionButtonStyle"
+               TargetType="Button">
+            <Setter Property="TextColor"
+                    Value="Black" />
+            <Setter Property="BorderColor"
+                    Value="Black" />
+            <Setter Property="WidthRequest"
+                    Value="40" />
+            <Setter Property="HeightRequest"
+                    Value="40" />
+            <Setter Property="FontSize"
+                    Value="18" />
+            <Setter Property="CornerRadius"
+                    Value="20" />
+            <Setter Property="HorizontalOptions"
+                    Value="Center" />
+        </Style>
+
+        <Style x:Key="AutoFormsListHeaderStyle"
+               TargetType="Grid">
+            <Setter Property="BackgroundColor"
+                    Value="LightGray" />
+        </Style>
+
+        <Style x:Key="AutoFormsListHeaderLabelStyle"
+               TargetType="Label">
+            <Setter Property="TextColor"
+                    Value="White" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
+
+        <Style x:Key="AutoFormsPrimaryActionButtonStyle"
+               TargetType="Button">
+            <Setter Property="WidthRequest"
+                    Value="200" />
+            <Setter Property="HeightRequest"
+                    Value="40" />
+            <Setter Property="FontSize"
+                    Value="14" />
+        </Style>
     </Application.Resources>
 </Application>

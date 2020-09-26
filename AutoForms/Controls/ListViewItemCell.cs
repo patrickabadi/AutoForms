@@ -68,20 +68,6 @@ namespace AutoForms.Controls
 
             var domainModelType = listControl.GetListItemType();
 
-            var attrib = domainModelType.GetAttribute<AutoFormsListUIAttribute>();
-            if (attrib == null || attrib.AlternateListItemStyle == null)
-            { 
-                return;
-            }
-            Style style = null;
-
-            if (Application.Current.Resources.TryGetValue(attrib.AlternateListItemStyle, out object obj))
-            {
-                style = (Style)obj;
-            }
-            else
-                return;
-
             ICollection list = listControl.ItemsSource as ICollection;
             if (list == null)
                 list = listControl.ListView?.ItemsSource as ICollection;
@@ -94,7 +80,7 @@ namespace AutoForms.Controls
                 {
                     if (item == BindingContext && index % 2 != 0)
                     { 
-                        Content.Style = style;
+                        //Content.Style = style;
                     }
                     index++;
                 }
@@ -126,14 +112,8 @@ namespace AutoForms.Controls
                         
             var domainModelType = listControl.GetListItemType();
 
-            var attrib = domainModelType.GetAttribute<AutoFormsListUIAttribute>();
-            if (attrib == null)
-            { 
-                return;
-            }
-
-            _grid.ColumnSpacing = attrib.ColumnSpacing;
-            _grid.Padding = new Thickness(attrib.ListItemPaddingLeft, attrib.ListItemPaddingTop, attrib.ListItemPaddingRight, attrib.ListItemPaddingBottom);
+            _grid.ColumnSpacing = 0;
+            _grid.Padding = new Thickness(25, 5, 25, 5);
 
             var props = AttributeHelper.GetPropertyAttributes<AutoFormsListItemAttribute>(domainModelType);
 
@@ -163,7 +143,7 @@ namespace AutoForms.Controls
                 }
             }
 
-            CreateActionButtons(attrib, listControl);
+            CreateActionButtons(listControl);
 
             if(controlValidation.Size > 0)
             {
@@ -179,13 +159,13 @@ namespace AutoForms.Controls
             //_grid.DebugGrid(Color.Red);
         }
 
-        void CreateActionButtons(AutoFormsListUIAttribute attribute, ControlList listControl)
+        void CreateActionButtons(ControlList listControl)
         { 
-            if (listControl == null || attribute == null || listControl.HasActions == false)
+            if (listControl == null || listControl.HasActions == false)
                 return;
 
             Style buttonStyle = null;
-            if (Application.Current.Resources.TryGetValue(attribute.ActionButtonStyle, out object obj))
+            if (Application.Current.Resources.TryGetValue(AutoFormsConstants.ActionButtonStyle, out object obj))
             {
                 buttonStyle = (Style)obj;
             }
@@ -207,7 +187,7 @@ namespace AutoForms.Controls
                 var attrib = FindButtonAttribute(listControl.EditCommand, listControl);
 
                 var style = buttonStyle;
-                var text = "\uE70F";
+                var text = AutoFormsConstants.Button_Edit;
 
                 if(attrib != null)
                 {
@@ -220,6 +200,7 @@ namespace AutoForms.Controls
                 {
                     Style = style,
                     Text = text,
+                    FontFamily = AutoFormsConstants.FontFamilyDefault,
                 };
 
                 b.SetBinding(ImageButton.CommandParameterProperty, new Binding("."));
@@ -231,7 +212,7 @@ namespace AutoForms.Controls
                 var attrib = FindButtonAttribute(listControl.ViewCommand, listControl);
 
                 var style = buttonStyle;
-                var text = "\uE890";
+                var text = AutoFormsConstants.Button_View;
 
                 if (attrib != null)
                 {
@@ -244,6 +225,7 @@ namespace AutoForms.Controls
                 {
                     Style = style,
                     Text = text,
+                    FontFamily = AutoFormsConstants.FontFamilyDefault,
                 };
                 b.SetBinding(ImageButton.CommandParameterProperty, new Binding("."));
                 b.SetBinding(ImageButton.CommandProperty, new Binding("BindingContext." + listControl.ViewCommand, source: listControl));
@@ -254,7 +236,7 @@ namespace AutoForms.Controls
                 var attrib = FindButtonAttribute(listControl.DeleteCommand, listControl);
 
                 var style = buttonStyle;
-                var text = "\uE74D";
+                var text = AutoFormsConstants.Button_Delete;
 
                 if (attrib != null)
                 {
@@ -267,6 +249,7 @@ namespace AutoForms.Controls
                 {
                     Style = style,
                     Text = text,
+                    FontFamily = AutoFormsConstants.FontFamilyDefault,
                 };
                 b.SetBinding(ImageButton.CommandParameterProperty, new Binding("."));
                 b.SetBinding(ImageButton.CommandProperty, new Binding("BindingContext." + listControl.DeleteCommand, source: listControl));

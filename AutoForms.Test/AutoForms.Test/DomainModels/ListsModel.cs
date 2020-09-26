@@ -13,22 +13,28 @@ namespace AutoForms.Test.DomainModels
     {
         
         [AutoFormsList("Phone Numbers",
-            labelStyleOverride: "AutoFormsListViewLabelStyle",
             commands: new string[] { nameof(AddCommand) },
             onDeleteCommand: nameof(DeleteCommand),
+            onEditCommand: nameof(EditCommand),
+            onViewCommand: nameof(ViewCommand),
             emptyListMessage: "No phone numbers have been entered yet. Add one above.",
             nestedListView: true)]
         public ObservableCollection<PhoneNumberModel> PhoneNumbers { get; set; }
 
-        [AutoFormsButton("Add", "AutoFormsContactAddNewPhoneButtonStyle")]
+        [AutoFormsButton("Add", "DefaultButtonStyle")]
         public ICommand AddCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+        public ICommand EditCommand { get; set; }
+        public ICommand ViewCommand { get; set; }
+
 
         public ListsModel()
         {
             PhoneNumbers = new ObservableCollection<PhoneNumberModel>();
             AddCommand = new Command(OnAdd);
             DeleteCommand = new Command(OnDelete);
+            EditCommand = new Command(OnEdit);
+            ViewCommand = new Command(OnView);
         }
 
         public void OnAdd()
@@ -40,12 +46,18 @@ namespace AutoForms.Test.DomainModels
         {
             PhoneNumbers.Remove(obj as PhoneNumberModel);
         }
+
+        public void OnEdit(object obj)
+        {
+
+        }
+
+        public void OnView(object obj)
+        {
+
+        }
     }
 
-    [AutoFormsListUIAttribute(
-        actionButtonStyle: "AutoFormsActionButtonStyle",
-        columnHeaderGridStyle: "AutoFormsListHeaderStyle",
-        columnHeaderLabelStyle: "AutoFormsListHeaderLabelStyle")]
     [AddINotifyPropertyChangedInterface]
     public class PhoneNumberModel
     {

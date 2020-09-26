@@ -24,6 +24,7 @@ namespace AutoForms.Test
                 new MenuItem("Lists", "Dynamically add/remove items in a list", typeof(Lists)),
                 new MenuItem("Validation", "Forms Validation", typeof(Validation)),
                 new MenuItem("Filtering", "Dynamic filtering the same model", typeof(Filtering)),
+                new MenuItem("Custom", "Create your own controls and add to AutoForms", typeof(CustomControls)),
             };
 
             InitializeComponent();
