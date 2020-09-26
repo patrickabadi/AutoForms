@@ -311,7 +311,7 @@ namespace AutoForms.Controls
                         iv = new Editor
                         {
                             Style = style,
-                            Placeholder = attribute.Placeholder,
+                            Placeholder = ControlBase.GetLocalizedString(attribute.Placeholder),
                             HeightRequest = attribute.HeightRequest,
                         };
                         iv.SetBinding(Editor.TextProperty, new Binding(property.Name, BindingMode.TwoWay));
@@ -321,7 +321,7 @@ namespace AutoForms.Controls
                         iv = new Entry
                         {
                             Style = style,
-                            Placeholder = attribute.Placeholder,
+                            Placeholder = ControlBase.GetLocalizedString(attribute.Placeholder),
                         };
                         iv.SetBinding(Entry.TextProperty, new Binding(property.Name, BindingMode.TwoWay));
                     }
@@ -351,7 +351,7 @@ namespace AutoForms.Controls
                     v = new Button
                     {
                         Style = style,
-                        Text = btnAttrib?.Text,
+                        Text = ControlBase.GetLocalizedString(btnAttrib?.Text),
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
                     };

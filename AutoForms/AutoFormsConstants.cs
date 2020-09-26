@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
@@ -28,5 +29,10 @@ namespace AutoForms
         public static string ActionButtonStyle = "AutoFormsActionButtonStyle";
         public static string ListHeaderStyle = "AutoFormsListHeaderStyle";
         public static string AutoFormsListHeaderLabelStyle = "AutoFormsListHeaderLabelStyle";
+
+        // String resource location
+        public static string ApplicationPath = "";
+        public static string StringResourcePath = "";
+        public static CultureInfo CultureOverride = null;
     }
 }

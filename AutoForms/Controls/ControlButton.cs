@@ -48,7 +48,7 @@ namespace AutoForms.Controls
             var t = new Button
             {
                 VerticalOptions = LayoutOptions.CenterAndExpand,
-                Text = Label,
+                Text = GetLocalizedString(Label),
                 Style = _itemStyle,
             };
 

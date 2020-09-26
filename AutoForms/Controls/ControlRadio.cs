@@ -131,7 +131,7 @@ namespace AutoForms.Controls
                 var lbl = new Label
                 {
                     Style = LabelStyle,
-                    Text = kvp.Value,
+                    Text = GetLocalizedString(kvp.Value),
                     VerticalOptions = LayoutOptions.CenterAndExpand,
                     VerticalTextAlignment = TextAlignment.Center,
                     HorizontalOptions = LayoutOptions.Fill,

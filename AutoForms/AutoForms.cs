@@ -104,6 +104,7 @@ namespace AutoForms
         {
             var g = LayoutRoot;
 
+            ControlBase.ResourceManager = null;
             g.Children.Clear();
             g.RowDefinitions.Clear();
 

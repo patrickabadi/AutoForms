@@ -32,6 +32,10 @@ namespace AutoForms.Test
             AutoFormsConstants.ListHeaderStyle = "AutoFormsListHeaderStyle";
             AutoFormsConstants.AutoFormsListHeaderLabelStyle = "AutoFormsListHeaderLabelStyle";
 
+            // Resource string
+            AutoFormsConstants.ApplicationPath = "AutoForms.Test";
+            AutoFormsConstants.StringResourcePath = "AutoForms.Test.Resources.Resource";
+
             MainPage = new NavigationPage(new MainPage());
         }
 
