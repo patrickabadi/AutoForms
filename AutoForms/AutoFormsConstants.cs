@@ -34,5 +34,12 @@ namespace AutoForms
         public static string ApplicationPath = "";
         public static string StringResourcePath = "";
         public static CultureInfo CultureOverride = null;
+
+        // String sentences
+        public static string ValidationMaxLength = "\"{0}\" is over maximum length of {1} ";
+        public static string ValidationMinLength = "\"{0}\" must have at least {1} characters";
+        public static string ValidationNumeric = "\"{0}\" can only contain numeric values";
+        public static string ValidationEmail = "\"{0}\" must be a valid email address";
+        public static string ValidationRequired = "\"{0}\" is required";
     }
 }

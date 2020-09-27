@@ -135,23 +135,21 @@ namespace AutoForms.Controls
             switch(validation)
             {
                 case AutoFormsMaxLengthAttribute max when validation.Type == AutoFormsValidationAttribute.ValidationType.MaxLength:
-                    label.Text = $"\"{title}\" is over maximum length of {max.Length} ";
+                    label.Text = string.Format(ControlBase.GetLocalizedString(AutoFormsConstants.ValidationMaxLength), title, max.Length);
                     MonitorEntryControl(true, validation, control, label);
                     break;
                 case AutoFormsMinLengthAttribute min when validation.Type == AutoFormsValidationAttribute.ValidationType.MinLength:
-                    label.Text = $"\"{title}\" must have at least {min.Length} characters";
-                    MonitorEntryControl(true, validation, control, label);
+                    label.Text = string.Format(ControlBase.GetLocalizedString(AutoFormsConstants.ValidationMinLength), title, min.Length);
                     break;
                 case AutoFormsValidationAttribute _ when validation.Type == AutoFormsValidationAttribute.ValidationType.Numeric:
-                    label.Text = $"\"{title}\" can only contain numeric values";
-                    MonitorEntryControl(true, validation, control, label);
+                    label.Text = string.Format(ControlBase.GetLocalizedString(AutoFormsConstants.ValidationNumeric), title);
                     break;
                 case AutoFormsValidationAttribute _ when validation.Type == AutoFormsValidationAttribute.ValidationType.Email:
-                    label.Text = $"\"{title}\" must be a valid email address";
+                    label.Text = string.Format(ControlBase.GetLocalizedString(AutoFormsConstants.ValidationEmail), title);
                     MonitorEntryControl(false, validation, control, label);
                     break;
                 case AutoFormsValidationAttribute _ when validation.Type == AutoFormsValidationAttribute.ValidationType.Required:
-                    label.Text = $"\"{title}\" is required";
+                    label.Text = string.Format(ControlBase.GetLocalizedString(AutoFormsConstants.ValidationRequired), title);
                     MonitorEntryControl(false, validation, control, label);
                     break;
                 default:
