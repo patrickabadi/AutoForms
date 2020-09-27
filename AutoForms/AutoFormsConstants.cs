@@ -41,5 +41,6 @@ namespace AutoForms
         public static string ValidationNumeric = "\"{0}\" can only contain numeric values";
         public static string ValidationEmail = "\"{0}\" must be a valid email address";
         public static string ValidationRequired = "\"{0}\" is required";
+        public static string ComboSelect = "Please Select";
     }
 }

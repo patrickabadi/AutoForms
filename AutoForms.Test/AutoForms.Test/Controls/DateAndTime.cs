@@ -8,7 +8,12 @@ using Xamarin.Forms;
 
 namespace AutoForms.Test.Controls
 {
-    public class DateAndTime: ControlCustom
+    // NOTE: I had an issue where basing a class off of my .NET standard library is causing an unknown error where I can no longer build for UWP
+    // https://forums.xamarin.com/discussion/179510/vs-2017-starts-erroring-on-uwp-project-with-could-not-copy-the-file-obj-debug-not-found
+    // https://github.com/xamarin/Xamarin.Forms/issues/4280
+    // I resolved it by adding a reference to AutoForms libary in my UWP project
+
+    public class DateAndTime : ControlCustom
     {
         Grid _grid => Content as Grid;
 

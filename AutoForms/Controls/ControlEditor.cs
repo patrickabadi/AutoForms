@@ -33,7 +33,7 @@ namespace AutoForms.Controls
                 {
                     VerticalOptions = LayoutOptions.StartAndExpand,
                     Style = EditorStyle,
-                    Placeholder = _attribute.Placeholder,
+                    Placeholder = GetLocalizedString(_attribute.Placeholder),
                     Keyboard = kb,
                 };
                 t.SetBinding(Entry.TextProperty, new Binding(bindingName, BindingMode.TwoWay, new DisplayConverter()));
@@ -45,7 +45,7 @@ namespace AutoForms.Controls
                 t = new Editor
                 {
                     Style = EditorStyle,
-                    Placeholder = _attribute.Placeholder,
+                    Placeholder = GetLocalizedString(_attribute.Placeholder),
                     HeightRequest = _attribute.HeightRequest,
                     Keyboard = kb,
                 };

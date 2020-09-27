@@ -29,6 +29,8 @@ namespace AutoForms.Controls
             var grid = new Grid
             {
                 RowSpacing = 0,
+                HeightRequest = 0,
+                IsClippedToBounds = true,
                 IsVisible = false,
                 IsEnabled = false,
                 Children =
@@ -123,7 +125,7 @@ namespace AutoForms.Controls
             if (string.IsNullOrWhiteSpace(title))
                 title = "Item";
 
-            //Debug.WriteLine($"AddValidation {validation.Type} for {title}");
+            title = ControlBase.GetLocalizedString(title);
 
             var label = new Label
             {
@@ -225,6 +227,7 @@ namespace AutoForms.Controls
             var isEnabled = _validations.Any(x => x.Label.IsEnabled);
 
             Content.IsVisible = Content.IsEnabled = isEnabled;
+            Content.HeightRequest = Content.IsVisible ? -1 : 0;
 
             //Debug.WriteLine($"Toggle \"{label.Text}\" to {Content.IsVisible}");
 
