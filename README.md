@@ -194,7 +194,7 @@ public class FilteringModel
  <img src="./Screenshots/filtering.gif" width="400" /> 
 
 ## Localization
-In order to get localization working there are a few steps you need to take. First create your localization localization resx files and place them in your project.  Next tell AutoForms where the Assemblies are located (your app and also the folder where the resources are kept).  Note that if AutoForms does not find the localization it will revert to the string it was given. 
+In order to get localization working there are a few steps you need to take. First create your localization resx files and place them in your project.  Next tell AutoForms where the Assemblies are located (your app and also the folder where the resources are kept).  Note that if AutoForms does not find the localization it will revert to the string it was given. 
 ```cs
 // Resource string
 AutoFormsConstants.ApplicationPath = "AutoForms.Test";
