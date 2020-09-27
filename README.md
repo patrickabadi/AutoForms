@@ -226,7 +226,7 @@ public class LocalizationModel
 | <img src="./Screenshots/localization-resource.png" width="400" />     | <img src="./Screenshots/localization-android.png" width="400" />       |
 
  ## AutoFormsConstants
- This is a static configuration class where you can specifiy certain certain UX and styling variables used by AutoForms.  There are several controls that require the use of an Icon font (Radio,Checkbox,List Action), which if used, would be needed to be included into your project.  Have a look at the sample application how the Material Icon font was included with the project (App.xaml.cs).
+ This is a static configuration class where you can specifiy certain UX and styling variables used by AutoForms.  There are several controls that require the use of an Icon font (Radio,Checkbox,List Action), which if used, would be needed to be included into your project.  Have a look at the sample application how the Material Icon font was included with the project (App.xaml.cs).
 
  ## Contributions
  All comments, suggestions, programming help is fully welcome.
