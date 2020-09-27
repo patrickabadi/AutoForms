@@ -140,7 +140,7 @@ namespace AutoForms.Controls
                 var button = new SelectButton()
                 {
                   HorizontalOptions = LayoutOptions.FillAndExpand,
-                  Text = kvp.Value,
+                  Text = GetLocalizedString(kvp.Value),
                   Style = _itemStyle,
                    
                 };

@@ -3,7 +3,10 @@ using AutoForms.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Reflection;
+using System.Resources;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -121,6 +124,8 @@ namespace AutoForms.Controls
             get { return (bool)GetValue(IsControlEnabledProperty); }
             set { SetValue(IsControlEnabledProperty, value); }
         }
+
+        public static ResourceManager ResourceManager;
         #endregion
 
         public List<ControlBase> Groups;
@@ -142,6 +147,8 @@ namespace AutoForms.Controls
         protected View _labelControl;
 
         protected const int _gridSpacing = 2;
+
+        
 
         protected Style _itemStyle
         {
@@ -262,6 +269,42 @@ namespace AutoForms.Controls
         public virtual bool HasValidation() => _property.GetAttributes<AutoFormsValidationAttribute>()?.Length > 0;
 
         public List<AutoFormsValidationAttribute> GetValidations() => _property.GetAttributes<AutoFormsValidationAttribute>()?.ToList();
+
+        public static string GetLocalizedString(string toTranslate)
+        {
+            if (string.IsNullOrWhiteSpace(toTranslate))
+                return toTranslate;
+
+            try
+            {
+                if (ResourceManager == null && 
+                    !string.IsNullOrWhiteSpace(AutoFormsConstants.StringResourcePath) &&
+                    !string.IsNullOrWhiteSpace(AutoFormsConstants.ApplicationPath))
+                {
+                    var assembly = Assembly.Load(AutoFormsConstants.ApplicationPath);
+                    if(assembly != null)
+                        ResourceManager = new ResourceManager(AutoFormsConstants.StringResourcePath, assembly);
+                }
+
+                if (ResourceManager != null && AutoFormsConstants.CultureOverride != null)
+                {
+                    var resp = ResourceManager.GetString(toTranslate, AutoFormsConstants.CultureOverride);
+                    return string.IsNullOrEmpty(resp) ? toTranslate : resp;
+                }
+                else if (ResourceManager != null)
+                {
+                    var resp = ResourceManager.GetString(toTranslate);
+                    return string.IsNullOrEmpty(resp) ? toTranslate : resp;
+                }
+
+                return toTranslate;
+            }
+            catch
+            {
+
+                return toTranslate;
+            }
+        }
 
         public static T GetFilteredAttribute<T>(int filter, PropertyInfo prop) where T : AutoFormsFilteredAttribute
         {
@@ -464,7 +507,7 @@ namespace AutoForms.Controls
             var l = new Label
             {
                 Style = _labelStyleOverride ?? labelStyle,
-                Text = label,
+                Text = GetLocalizedString(label),
                 VerticalOptions =
                 orientation == AutoFormsOrientation.Horizontal && _attribute.HeightRequest > 0
                     ? LayoutOptions.StartAndExpand

@@ -61,7 +61,7 @@ namespace AutoForms.Controls
             }
             else
             {
-                l.Text = _config.Label;
+                l.Text = GetLocalizedString(_config.Label);
             }
 
             return l;

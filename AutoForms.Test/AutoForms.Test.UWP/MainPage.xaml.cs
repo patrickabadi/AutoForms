@@ -21,7 +21,7 @@ namespace AutoForms.Test.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new AutoForms.Test.App());
+            LoadApplication(new AutoFormsTest.App());
         }
     }
 }

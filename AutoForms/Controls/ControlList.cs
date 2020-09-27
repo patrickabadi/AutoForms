@@ -127,7 +127,7 @@ namespace AutoForms.Controls
                     var b = new Button
                     {
                         Style = style,
-                        Text = attribute.Text
+                        Text = GetLocalizedString(attribute.Text)
                     };
                     b.SetBinding(ImageButton.CommandProperty, new Binding(property.Name));
 
@@ -312,7 +312,7 @@ namespace AutoForms.Controls
                     view = new Label
                     {
                         Style = style,
-                        Text = attribute.Label,
+                        Text = GetLocalizedString(attribute.Label),
                         VerticalOptions = LayoutOptions.CenterAndExpand,
                         VerticalTextAlignment = TextAlignment.Center,
                         HorizontalOptions = LayoutOptions.Fill,
@@ -390,7 +390,7 @@ namespace AutoForms.Controls
             {
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,                
-                Text = listAttribute.EmptyListMessage,
+                Text = GetLocalizedString(listAttribute.EmptyListMessage),
                 IsVisible = false,
                 InputTransparent = true,
                 Margin = 20,

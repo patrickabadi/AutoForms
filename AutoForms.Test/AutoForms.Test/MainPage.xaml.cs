@@ -24,7 +24,8 @@ namespace AutoForms.Test
                 new MenuItem("Lists", "Dynamically add/remove items in a list", typeof(Lists)),
                 new MenuItem("Validation", "Forms Validation", typeof(Validation)),
                 new MenuItem("Filtering", "Dynamic filtering the same model", typeof(Filtering)),
-                new MenuItem("Custom", "Create your own controls and add to AutoForms", typeof(CustomControls)),
+                new MenuItem("Localization", "Support for localization Resources", typeof(Localization)),
+                new MenuItem("Custom", "Create your own controls and add to AutoForms", typeof(CustomControls)),                
             };
 
             InitializeComponent();
@@ -35,11 +36,32 @@ namespace AutoForms.Test
         {
             var t = (e.SelectedItem as MenuItem)?.PageType;
             if (t == null)
-                return;                
+                return;
+
+            // if user chose localization page ask them which language they want to see
+            if (t == typeof(Localization))
+            {
+                var result = await DisplayActionSheet(
+                    "Select a Language",
+                    "Cancel",
+                    "",
+                    new string[] { "English", "Japanese", "Default" });
+
+                switch (result)
+                {
+                    case "Japanese":
+                        AutoFormsConstants.CultureOverride = new System.Globalization.CultureInfo("ja");
+                        break;
+                    case "English":
+                    default:
+                        AutoFormsConstants.CultureOverride = null;
+                        break;
+                }
+            }
 
             var page = Activator.CreateInstance(t) as ContentPage;
             if (page == null)
-                return;
+                return;          
 
             await Navigation.PushAsync(page);
 

@@ -2,7 +2,7 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:AutoForms.Controls;assembly=AutoForms"
-             x:Class="AutoForms.Test.App">
+             x:Class="AutoFormsTest.App">
     <Application.Resources>
         <Style x:Key="DefaultLabelStyle"
                TargetType="Label">

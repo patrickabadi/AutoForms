@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Xamarin.Forms.AutoForms</id>
-    <version>0.2.0</version>
+    <version>0.6.0</version>
     <title>AutoForms</title>
     <authors>Patrick Abadi, Daniel Packard</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AutoForms;
+using AutoForms.Test;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: ExportFont("MaterialIcons-Regular.ttf", Alias = "MaterialIcons")]
 
-namespace AutoForms.Test
+namespace AutoFormsTest
 {
     public partial class App : Application
     {
@@ -31,6 +33,10 @@ namespace AutoForms.Test
             AutoFormsConstants.ActionButtonStyle = "AutoFormsActionButtonStyle";
             AutoFormsConstants.ListHeaderStyle = "AutoFormsListHeaderStyle";
             AutoFormsConstants.AutoFormsListHeaderLabelStyle = "AutoFormsListHeaderLabelStyle";
+
+            // Resource string
+            AutoFormsConstants.ApplicationPath = "AutoForms.Test";
+            AutoFormsConstants.StringResourcePath = "AutoForms.Test.Resources.Resource";
 
             MainPage = new NavigationPage(new MainPage());
         }

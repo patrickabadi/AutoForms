@@ -104,6 +104,7 @@ namespace AutoForms
         {
             var g = LayoutRoot;
 
+            ControlBase.ResourceManager = null;
             g.Children.Clear();
             g.RowDefinitions.Clear();
 
@@ -227,12 +228,13 @@ namespace AutoForms
                         AddAutoGridItem (new ControlValidation(i, UpdateLayout));
                     }
                 }
-
-                AddAutoGridItem(new BoxView
-                {
-                    HeightRequest = 10 // used to fix spacing issues
-                });
+                
             }
+
+            AddAutoGridItem(new BoxView
+            {
+                HeightRequest = 20 // used to fix spacing issues
+            });
         }
 
         protected void AddAutoGridItem(View item)

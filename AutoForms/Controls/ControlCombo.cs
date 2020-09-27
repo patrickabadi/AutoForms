@@ -48,7 +48,7 @@ namespace AutoForms.Controls
                 var dict = EnumHelper.ToDictionary(propertyType);
 
                 var items = new List<EnumItem>();
-                items.Add(new EnumItem { Title = "Please Select", Value = -1 });
+                items.Add(new EnumItem { Title = GetLocalizedString(AutoFormsConstants.ComboSelect), Value = -1 });
 
                 int index = 0;
 

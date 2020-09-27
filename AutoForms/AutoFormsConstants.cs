@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
@@ -28,5 +29,18 @@ namespace AutoForms
         public static string ActionButtonStyle = "AutoFormsActionButtonStyle";
         public static string ListHeaderStyle = "AutoFormsListHeaderStyle";
         public static string AutoFormsListHeaderLabelStyle = "AutoFormsListHeaderLabelStyle";
+
+        // String resource location
+        public static string ApplicationPath = "";
+        public static string StringResourcePath = "";
+        public static CultureInfo CultureOverride = null;
+
+        // String sentences
+        public static string ValidationMaxLength = "\"{0}\" is over maximum length of {1} ";
+        public static string ValidationMinLength = "\"{0}\" must have at least {1} characters";
+        public static string ValidationNumeric = "\"{0}\" can only contain numeric values";
+        public static string ValidationEmail = "\"{0}\" must be a valid email address";
+        public static string ValidationRequired = "\"{0}\" is required";
+        public static string ComboSelect = "Please Select";
     }
 }

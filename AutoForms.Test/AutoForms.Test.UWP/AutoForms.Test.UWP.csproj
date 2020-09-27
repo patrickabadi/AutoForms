@@ -148,6 +148,10 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AutoForms\AutoForms.csproj">
+      <Project>{54c97dfc-98bd-424f-9dee-8d7fdd407f63}</Project>
+      <Name>AutoForms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AutoForms.Test\AutoForms.Test.csproj">
       <Project>{8ED494F8-8C3B-4067-BDD7-13A7D552AD81}</Project>
       <Name>AutoForms.Test</Name>
