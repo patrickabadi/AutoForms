@@ -7,7 +7,7 @@ To use **AutoForms** simply add the control in your xaml and then bind it to you
 - [x] Android
 - [x] iOS
 - [x] UWP
-- [?] Other Platforms (Shoudl work but I haven't tested)
+- [?] Other Platforms (Should work but I haven't tested)
 
 ## Example
 **xaml**
