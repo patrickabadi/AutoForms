@@ -48,15 +48,16 @@ namespace AutoForms.Behaviors
                 bool isValid =
                     args.NewTextValue.ToCharArray().All(x => char.IsDigit(x) || _allowDecimalPoint && x=='.'); //Make sure all characters are numbers
 
+                if (isValid)
+                    return;
+
                 if (sender is Entry entry)
                 {
-                    entry.Text =
-                    isValid ? args.NewTextValue : args.NewTextValue.Remove(args.NewTextValue.Length - 1);
+                    entry.Text = args.NewTextValue.Remove(args.NewTextValue.Length - 1);
                 }
                 else if (sender is Editor editor)
                 {
-                    editor.Text =
-                    isValid ? args.NewTextValue : args.NewTextValue.Remove(args.NewTextValue.Length - 1);
+                    editor.Text = args.NewTextValue.Remove(args.NewTextValue.Length - 1);
                 }
 
             }
