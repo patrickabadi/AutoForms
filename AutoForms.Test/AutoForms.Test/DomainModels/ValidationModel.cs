@@ -24,19 +24,22 @@ namespace AutoForms.Test.DomainModels
         [AutoForms(" ", AutoFormsType.Entry, placeholder: "CC", grouped: new string[] { nameof(PhoneNumber), nameof(Extension) })]
         [AutoFormsMaxLength(5)]
         [AutoFormsRequired]
-        public string CountryCode { get; set; }
+        [AutoFormsNumeric]
+        public int CountryCode { get; set; }
 
         [AutoFormsHorizontalGroup(3, GridUnitType.Star)]
         [AutoForms(" ", AutoFormsType.Entry, placeholder:"Number")]
         [AutoFormsMaxLength(10)]
         [AutoFormsMinLength(5)]
+        [AutoFormsNumeric]
         [AutoFormsRequired]
         public string PhoneNumber { get; set; }
 
         [AutoFormsHorizontalGroup(1, GridUnitType.Star)]
         [AutoForms(" ", AutoFormsType.Entry, placeholder:"Ext")]
-        [AutoFormsMaxLength(4)]        
+        [AutoFormsMaxLength(4)]
+        [AutoFormsNumeric]
         [AutoFormsRequired]
-        public string Extension { get; set; }
+        public int Extension { get; set; }
     }
 }

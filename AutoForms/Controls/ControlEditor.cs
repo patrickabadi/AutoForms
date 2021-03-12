@@ -1,4 +1,5 @@
-﻿using AutoForms.Common;
+﻿using AutoForms.Behaviors;
+using AutoForms.Common;
 using AutoForms.Converters;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,19 @@ namespace AutoForms.Controls
         {           
             Keyboard kb = Keyboard.Default;
 
+            bool isNumeric = false;
+            bool isDecimal = false;
+
             if(IsNumericField(fieldType))
             {
                 kb = Keyboard.Numeric;
+                isNumeric = true;
+                isDecimal = IsDecimalField(fieldType);
             }
 
             var maxLength = _property.GetAttribute<AutoFormsMaxLengthAttribute>()?.Length ?? 0;
+
+            isNumeric |= _property.GetAttribute<AutoFormsNumericAttribute>() != null;
 
             InputView t;
             if(_attribute.HeightRequest <= 0)
@@ -38,7 +46,10 @@ namespace AutoForms.Controls
                 };
                 t.SetBinding(Entry.TextProperty, new Binding(bindingName, BindingMode.TwoWay, new DisplayConverter()));
 
-                
+                if (isNumeric)
+                {
+                    t.Behaviors.Add(new NumericInputBehavior<Entry>(isDecimal));
+                }
             }
             else
             {
@@ -51,11 +62,18 @@ namespace AutoForms.Controls
                 };
 
                 t.SetBinding(Editor.TextProperty, new Binding(bindingName, BindingMode.TwoWay, new DisplayConverter()));
+
+                if (isNumeric)
+                {
+                    t.Behaviors.Add(new NumericInputBehavior<Editor> (isDecimal));
+                }
             }
 
             // adding in max length safety here
             if (maxLength > 0)
                 t.MaxLength = maxLength;
+
+            
 
             return t;
         }
